@@ -24,12 +24,21 @@ get_emoji() {
   esac
 }
 
+# Извлекаем тип из сообщения
 TYPE=$(echo "$MSG" | sed -E 's/^([a-zA-Z]+)(\([^)]+\))?:.*/\1/')
-
 EMOJI=$(get_emoji "$TYPE")
 
-if [ -n "$EMOJI" ] && ! echo "$MSG" | grep -q "^$EMOJI"; then
-  echo "$EMOJI $MSG" > "$COMMIT_MSG_FILE"
+if [ -n "$EMOJI" ]; then
+  if echo "$MSG" | grep -qE "^$TYPE\([^)]+\):"; then
+    NEW_MSG=$(echo "$MSG" | sed -E "s/(^$TYPE\([^)]+\):)(.*)/\1 $EMOJI\2/")
+  else
+    NEW_MSG=$(echo "$MSG" | sed -E "s/(^$TYPE:)(.*)/\1 $EMOJI\2/")
+  fi
+  
+  if ! echo "$NEW_MSG" | grep -qE " $EMOJI.* $EMOJI"; then
+    echo "$NEW_MSG" > "$COMMIT_MSG_FILE"
+  fi
 fi
 
+# Запускаем проверку
 yarn commitlint --edit "$1"
