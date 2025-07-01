@@ -1,11 +1,7 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
-export const Route = createLazyFileRoute('/')({
-  component: Index,
-});
-
-function Index() {
+const Index = () => {
   const { t } = useTranslation('', { keyPrefix: 'welcome-page' });
 
   return (
@@ -13,4 +9,8 @@ function Index() {
       <h3>{t('title')}</h3>
     </div>
   );
-}
+};
+
+export const Route = createLazyFileRoute('/_layout/')({
+  component: Index,
+});

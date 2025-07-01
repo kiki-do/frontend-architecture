@@ -28,6 +28,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-i18next": "^15.5.3",
+    "tailwind-variants": "^1.0.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
@@ -37,7 +38,9 @@
     "@eslint/js": "^9.29.0",
     "@tanstack/eslint-plugin-query": "4",
     "@tanstack/eslint-plugin-router": "^1.121.21",
+    "@tanstack/react-query-devtools": "^5.81.5",
     "@tanstack/router-cli": "^1.123.2",
+    "@tanstack/router-devtools": "^1.123.2",
     "@tanstack/router-plugin": "^1.123.2",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -52,6 +55,7 @@
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "release-it": "^19.0.3",
+    "tailwind-merge": "^3.3.1",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
     "vite": "^7.0.0"

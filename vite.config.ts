@@ -7,14 +7,7 @@ import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    tanstackRouter({
-      autoCodeSplitting: true,
-      target: 'react',
-    }),
-    tailwindcss(),
-    react(),
-  ],
+  plugins: [tanstackRouter({ target: 'react' }), tailwindcss(), react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src/'),

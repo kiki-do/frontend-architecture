@@ -1,4 +1,16 @@
 @import 'tailwindcss';
 
+body, html, #root{ 
+  @apply h-full
+}
+
 @theme {
+  --color-primary: #000;
+  --color-primary-foreground: #fff;
+  --color-secondary: #f0f0f0;
+  --color-secondary-foreground: #000;
+  --color-accent: #e0e0e0;
+  --color-accent-foreground: #000;
+  --color-destructive: #f00;
+  --color-destructive-foreground: #fff;
 }
