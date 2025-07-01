@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import queryPlugin from '@tanstack/eslint-plugin-query';
 import pluginRouter from '@tanstack/eslint-plugin-router';
 import { globalIgnores } from 'eslint/config';
 import importPlugin from 'eslint-plugin-import';
@@ -51,6 +52,7 @@ export default tseslint.config(
 
   {
     plugins: {
+      '@tanstack/query': queryPlugin,
       '@tanstack/router': pluginRouter,
       'import': importPlugin,
       'perfectionist': perfectionist,

@@ -1220,6 +1220,11 @@
     "@tailwindcss/oxide" "4.1.11"
     tailwindcss "4.1.11"
 
+"@tanstack/eslint-plugin-query@4":
+  version "4.39.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/eslint-plugin-query/-/eslint-plugin-query-4.39.1.tgz#36fd6f1534c3d9c4504e53043669742708804116"
+  integrity sha512-5YDX4mdRC0hllHKp531CnScFWZU7aFrJ1aTyyuaB6+z0/i0JfcKuckSTYaji3vUk82GALM90eWwHFVRAch+7tQ==
+
 "@tanstack/eslint-plugin-router@^1.121.21":
   version "1.121.21"
   resolved "https://registry.yarnpkg.com/@tanstack/eslint-plugin-router/-/eslint-plugin-router-1.121.21.tgz#31f438f1b994446d077137a2686dc57eac9183d2"

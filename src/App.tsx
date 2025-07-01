@@ -23,10 +23,8 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const App = () => (
+export const App = () => (
   <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
   </QueryClientProvider>
 );
-
-export default App;
