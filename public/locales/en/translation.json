@@ -1,5 +1,9 @@
 {
   "welcome-page": {
     "title": "Welcome page!"
+  },
+
+  "about-page": {
+    "title": "About page!"
   }
 }
