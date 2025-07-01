@@ -13,7 +13,8 @@
     "generate-routes": "tsr generate",
     "release": "release-it",
     "prepare": "husky",
-    "validate": "yarn lint && yarn build"
+    "validate": "yarn lint && yarn build",
+    "commit": "commit"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.123.2",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/prompt-cli": "^19.8.1",
     "@eslint/js": "^9.29.0",
     "@tanstack/eslint-plugin-router": "^1.121.21",
     "@tanstack/router-cli": "^1.123.2",
