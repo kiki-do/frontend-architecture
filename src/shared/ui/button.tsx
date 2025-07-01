@@ -1,6 +1,7 @@
 import { Loader2 } from 'lucide-react';
-import { type ComponentProps, type ReactNode } from 'react';
 import { forwardRef } from 'react';
+
+import type { ComponentProps, ReactNode } from 'react';
 
 interface ButtonProps extends ComponentProps<'button'> {
   isLoading?: boolean;
