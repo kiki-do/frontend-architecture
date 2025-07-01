@@ -1,1 +1,40 @@
-yarn commitlint --edit $1
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Пропускаем Merge-коммиты
+if echo "$MSG" | grep -qE "^Merge"; then
+  exit 0
+fi
+
+# Маппинг type → emoji
+get_emoji() {
+  case $1 in
+    feat) echo "✨" ;;
+    fix) echo "🐛" ;;
+    docs) echo "📝" ;;
+    style) echo "🎨" ;;
+    refactor) echo "♻️" ;;
+    test) echo "✅" ;;
+    chore) echo "🔧" ;;
+    build) echo "🏗" ;;
+    ci) echo "👷" ;;
+    revert) echo "⏪" ;;
+    perf) echo "⚡️" ;;
+    *) echo "" ;;
+  esac
+}
+
+# Получаем type из начала коммита (до двоеточия)
+TYPE=$(echo "$MSG" | cut -d: -f1 | tr -d ' ')
+
+EMOJI=$(get_emoji "$TYPE")
+
+# Подставляем emoji, если её ещё нет
+if [ -n "$EMOJI" ] && ! echo "$MSG" | grep -q "$EMOJI"; then
+  echo "$EMOJI $MSG" > "$COMMIT_MSG_FILE"
+fi
+
+# 🧪 Проверка commitlint'ом (оставь это!)
+yarn commitlint --edit "$1"
