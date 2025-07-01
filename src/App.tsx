@@ -1,13 +1,32 @@
-import type { FC } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createRouter, RouterProvider } from '@tanstack/react-router';
 
-import { Button } from '@/shared/ui';
+import { routeTree } from './routeTree.gen';
 
-const App: FC = () => {
-  return (
-    <>
-      <Button />
-    </>
-  );
-};
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      staleTime: 0,
+    },
+  },
+});
+
+const router = createRouter({
+  context: { queryClient },
+  routeTree,
+});
+
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>
+);
 
 export default App;
