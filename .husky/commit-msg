@@ -24,11 +24,10 @@ get_emoji() {
   esac
 }
 
-# Extract type
 TYPE=$(echo "$MSG" | sed -E 's/^([a-zA-Z]+)(\([^)]+\))?:.*/\1/')
 EMOJI=$(get_emoji "$TYPE")
 
-# 1. Run commitlint first (on the original message)
+
 yarn commitlint --edit "$1"
 RESULT=$?
 
@@ -36,7 +35,6 @@ if [ $RESULT -ne 0 ]; then
   exit $RESULT
 fi
 
-# 2. If commitlint passed, prepend emoji if not already present
 if [ -n "$EMOJI" ]; then
   if ! echo "$MSG" | grep -qE "^$EMOJI "; then
     echo "$EMOJI $MSG" > "$COMMIT_MSG_FILE"
